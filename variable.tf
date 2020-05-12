@@ -11,19 +11,19 @@
 variable "project_name" {
   //type        = "string"
   description = "The name of the project to instanciate the instance at."
-  default     = "demos-sed-security-isg"
+  default     = "demos-sed-security-hollitz"
 }
 
 variable "region_name" {
   //type        = "string"
   description = "The region that this terraform configuration will instanciate at."
-  default     = "us-west1"
+  default     = "us-east4"
 }
 
 variable "zone_name" {
   //type        = "string"
   description = "The zone that this terraform configuration will instanciate at."
-  default     = "us-west1-a"
+  default     = "us-east4-c"
 }
 
 variable "machine_size" {
@@ -41,12 +41,12 @@ variable "image_name" {
 
 variable "network" {
   description = "The name of the subnetwork create this instance in."
-  default     = "isg-internal"
+  default     = "rh-isg-sac-dev"
 }
 
 variable "subnetwork" {
   description = "The name of the subnetwork create this instance in."
-  default     = "isg-cicd-dev-subnet"
+  default     = "rh-isg-sac-dev"
 }
 
 variable "tags" {
@@ -57,14 +57,11 @@ variable "tags" {
 
 // Secure Access Cloud
 variable "tenant_domain" {
-  default = "sasedemo.luminatesec.com"
+  default = "symcrhollitz.luminatesite.com"
 }
 variable "luminate_user" {
   //type        = list(string)
-  //default     = ("joe@SASEDemo.com" "michael.winslow@SASEDemo.com")
-  default = "joe@SASEDemo.com"
-  //default = "michael.winslow@SASEDemo.com"
-  //default = "mikewinslow@symcmwinslow.luminatesite.com"
+  default = "ryan.hollitz@symcrhollitz.luminatesite.com"
 }
 //variable "luminate_group" {
   //default = "Developers"
