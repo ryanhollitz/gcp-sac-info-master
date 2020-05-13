@@ -19,7 +19,7 @@ provider "google" {
 terraform {
   required_version = "~>0.12.0"
     backend "gcs" {
-    bucket  = "sed-isg-tf-bucket"
+    bucket  = "terraform-state-prod"
     prefix  = "terraform/state"
   }
 }
@@ -41,7 +41,7 @@ data "template_file" "startup_script" {
 
 # This creates the google instance
 resource "google_compute_instance" "default" {
-    name = "dev-sase-vm-${random_id.instance_id.hex}"
+    name = "rh-sase-vm-${random_id.instance_id.hex}"
     machine_type = var.machine_size
     zone = var.zone_name
     tags     = var.tags
@@ -95,8 +95,8 @@ resource "luminate_web_access_policy" "web-access-policy" {
 
 // Change for Account in SAC
 data "luminate_identity_provider" "idp" {
-  identity_provider_name = "SASEDemoOkta"
-  //identity_provider_name = "local"
+  //identity_provider_name = "SASEDemoOkta"
+  identity_provider_name = "local"
 }
 
 data "luminate_user" "users" {
