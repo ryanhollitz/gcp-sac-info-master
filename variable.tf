@@ -10,19 +10,19 @@
 
 variable "project_name" {
   //type        = "string"
-  description = "The name of the project to instanciate the instance at."
+  description = "The name of the project to instantiate the instance at."
   default     = "demos-sed-security-hollitz"
 }
 
 variable "region_name" {
   //type        = "string"
-  description = "The region that this terraform configuration will instanciate at."
+  description = "The region that this terraform configuration will instantiate at."
   default     = "us-east4"
 }
 
 variable "zone_name" {
   //type        = "string"
-  description = "The zone that this terraform configuration will instanciate at."
+  description = "The zone that this terraform configuration will instantiate at."
   default     = "us-east4-c"
 }
 
@@ -51,7 +51,7 @@ variable "subnetwork" {
 
 variable "tags" {
   type        = list(string)
-  default     = ["cicd-deny-ext","cicd-allow-int"]
+//  default     = ["cicd-deny-ext","cicd-allow-int"]
   description = "Network tags, provided as a list"
 }
 

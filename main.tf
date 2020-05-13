@@ -19,7 +19,7 @@ provider "google" {
 terraform {
   required_version = "~>0.12.0"
     backend "gcs" {
-    bucket  = "terraform-state-prod"
+    bucket  = "hollitz-tf"
     prefix  = "terraform/state"
   }
 }
@@ -41,7 +41,7 @@ data "template_file" "startup_script" {
 
 # This creates the google instance
 resource "google_compute_instance" "default" {
-    name = "rh-sase-vm-${random_id.instance_id.hex}"
+    name = "hollitz-sase-vm-${random_id.instance_id.hex}"
     machine_type = var.machine_size
     zone = var.zone_name
     tags     = var.tags
@@ -109,11 +109,3 @@ data "luminate_user" "users" {
   //groups               = [var.luminate_group]
 //}
 
-//data "template_file" "startup_script" {
-  //template = "${file("${path.module}/scripts/install-deps.sh")}"
-  //vars = {
-    //connector_command = luminate_connector.connector.command
-    //git_repo = var.git_repo
-    //git_branch = var.git_branch
-  //}
-//}
